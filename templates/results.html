@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Missing Child Identification
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/register">Register Child</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="hero">
+
+            <h1>Search Results</h1>
+
+            <p>
+                Potential records from the demonstration database.
+            </p>
+
+        </section>
+
+
+        {% if children %}
+
+            <section class="results">
+
+                {% for child in children %}
+
+                    <div class="result-card">
+
+                        <h2>{{ child.name }}</h2>
+
+                        <p>
+                            <strong>Age:</strong>
+                            {{ child.age }}
+                        </p>
+
+                        <p>
+                            <strong>Gender:</strong>
+                            {{ child.gender }}
+                        </p>
+
+                        <p>
+                            <strong>Missing Date:</strong>
+                            {{ child.missing_date }}
+                        </p>
+
+                        <p>
+                            <strong>Missing Location:</strong>
+                            {{ child.missing_location }}
+                        </p>
+
+                        <p>
+                            <strong>Record ID:</strong>
+                            {{ child.id }}
+                        </p>
+
+                    </div>
+
+                {% endfor %}
+
+            </section>
+
+        {% else %}
+
+            <section class="card">
+
+                <h2>No Records Found</h2>
+
+                <p>
+                    The demonstration database currently has no registered records.
+                </p>
+
+            </section>
+
+        {% endif %}
+
+
+        <section class="card">
+
+            <a class="button" href="/">
+                Back to Home
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Educational / demonstration project
+        </p>
+
+        <p>
+            Do not use real children's biometric data.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

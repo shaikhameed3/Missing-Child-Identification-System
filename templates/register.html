@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register Child</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Missing Child Identification
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/register">Register Child</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="hero">
+
+            <h1>Register Demonstration Record</h1>
+
+            <p>
+                Add a test record to the local database.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <form action="/register"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+
+                <label for="name">
+                    Child Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter test name"
+                    required
+                >
+
+
+                <label for="age">
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    min="1"
+                    max="18"
+                    placeholder="Enter age"
+                    required
+                >
+
+
+                <label for="gender">
+                    Gender
+                </label>
+
+                <select id="gender" name="gender">
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label for="missing_date">
+                    Missing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="missing_date"
+                    name="missing_date"
+                >
+
+
+                <label for="missing_location">
+                    Missing Location
+                </label>
+
+                <input
+                    type="text"
+                    id="missing_location"
+                    name="missing_location"
+                    placeholder="Example: Hyderabad"
+                >
+
+
+                <label for="image">
+                    Child Photograph
+                </label>
+
+                <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/*"
+                    required
+                >
+
+
+                <button type="submit">
+                    Register Record
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="card">
+
+            <h3>Demo Notice</h3>
+
+            <p>
+                Use only fictional/test information and images
+                for this GitHub demonstration project.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Educational / demonstration project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

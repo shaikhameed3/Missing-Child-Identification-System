@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Missing Child Identification System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            Missing Child Identification
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/register">Register Child</a>
+        </div>
+    </nav>
+
+
+    <main>
+
+        <section class="hero">
+
+            <h1>Missing Child Identification System</h1>
+
+            <p>
+                Upload a photograph to search the registered demonstration
+                database for potential facial matches.
+            </p>
+
+        </section>
+
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+
+        <section class="card">
+
+            <h2>Search for a Child</h2>
+
+            <form action="/search" method="POST" enctype="multipart/form-data">
+
+                <label for="image">
+                    Upload Image
+                </label>
+
+                <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/*"
+                    required
+                >
+
+                <button type="submit">
+                    Search Database
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>Register a Demonstration Record</h2>
+
+            <p>
+                Add a test child record to the local demonstration database.
+            </p>
+
+            <a class="button" href="/register">
+                Register Child
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Educational / demonstration project
+        </p>
+
+        <p>
+            Do not use real children's biometric data.
+        </p>
+
+    </footer>
+
+</body>
+</html>
